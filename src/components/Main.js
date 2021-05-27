@@ -1,7 +1,43 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { useTable } from "react-table";
 
+import { GridStack } from "gridstack";
+import "gridstack/dist/gridstack.css";
+
 const Main = () => {
+  useEffect(() => {
+    var grid = GridStack.init();
+  });
+  return (
+    <div className="App">
+      <div class="grid-stack">
+        <div
+          class="grid-stack-item border-dark"
+          data-gs-width="4"
+          data-gs-height="4"
+        >
+          <div class="grid-stack-item-content">Item 1</div>
+        </div>
+        <div
+          class="grid-stack-item border-dark"
+          data-gs-width="4"
+          data-gs-height="4"
+        >
+          <div class="grid-stack-item-content">Item 2</div>
+        </div>
+        <div
+          class="grid-stack-item border-dark"
+          data-gs-width="4"
+          data-gs-height="4"
+        >
+          <div class="grid-stack-item-content">Item 3</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MainTest = () => {
   const data = React.useMemo(() => [
     {
       col1: "Days",
@@ -187,4 +223,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Main
