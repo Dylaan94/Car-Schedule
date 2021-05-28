@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-
 import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.css";
-
 import "gridstack/dist/h5/gridstack-dd-native";
 
 class Main extends Component {
@@ -12,11 +10,12 @@ class Main extends Component {
       count: 0,
       info: "",
       items: [
-        { x: 2, y: 1, h: 2 },
-        { x: 2, y: 4, w: 3 },
-        { x: 4, y: 2 },
-        { x: 3, y: 1, h: 2 },
-        { x: 0, y: 6, w: 2, h: 2 },
+        { x: 0, y: 0, h: 1, w: 2 },
+        { x: 2, y: 0, h: 1, w: 2 },
+        { x: 4, y: 0, h: 1, w: 2 },
+        { x: 6, y: 0, h: 1, w: 2 },
+        { x: 8, y: 0, h: 1, w: 2 },
+        { x: 10, y: 0, h: 1, w: 2 },
       ],
     };
   }
@@ -25,8 +24,20 @@ class Main extends Component {
     // once the component mounts it initialises the gridstack
     this.grid = GridStack.init({
       float: true,
-      cellHeight: "200px",
-      minRow: 1,
+      cellHeight: "100px",
+      minRow: 6,
+      maxRow: 6,
+    });
+
+    // rendering each node as 0 instead of its number - CHECK
+
+    const node = this.state.items;
+    node.forEach(() => {
+      node.id = node.content = String(this.state.count);
+      this.setState((prevState) => ({
+        count: prevState.count + 1,
+      }));
+      this.grid.addWidget(node);
     });
 
     this.grid.on("dragstop", (event, element) => {
@@ -50,9 +61,9 @@ class Main extends Component {
     const node = this.state.items[this.state.count] || {
       x: 1,
       y: 1,
-      w: 50,
-      h: 50,
-    }
+      w: 1,
+      h: 2,
+    };
     node.id = node.content = String(this.state.count);
     this.setState((prevState) => ({
       count: prevState.count + 1,
@@ -67,7 +78,7 @@ class Main extends Component {
           Add Widget
         </button>
         {this.state.info}
-        <section class="grid-stack"></section>
+        <section className="grid-stack"></section>
       </div>
     );
   }
