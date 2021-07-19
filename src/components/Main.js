@@ -20,6 +20,8 @@ class Main extends Component {
     };
   }
 
+  
+
   componentDidMount() {
     // once the component mounts it initialises the gridstack
     this.grid = GridStack.init({
