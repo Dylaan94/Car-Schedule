@@ -30,6 +30,7 @@ class Main extends Component {
         { x: 0, y: 5, h: 1, w: 1, name: "Friday" },
         { x: 0, y: 6, h: 1, w: 1, name: "Last Friday" },
       ],
+      choice: [{}],
     };
   }
 
@@ -38,11 +39,17 @@ class Main extends Component {
     this.grid = GridStack.init({
       column: 10,
       float: true,
-      // disableDrag: true,
-      // disableResize: true,
       cellHeight: "80px",
       minRow: 7,
       maxRow: 7,
+    });
+
+    this.carGrid = GridStack.init({
+      column: 3,
+      float: true,
+      cellHeight: "80px",
+      minRow: 2,
+      maxRow: 2,
     });
 
     // renders initial items in state and sets id as name
@@ -57,7 +64,7 @@ class Main extends Component {
       node.noResize = true;
       node.locked = true;
       node.noMove = true;
-      this.grid.addWidget(node)
+      this.grid.addWidget(node);
     }
 
     this.setState((prevState) => ({
@@ -97,16 +104,32 @@ class Main extends Component {
     this.grid.addWidget(node);
   };
 
+  addCars = () => {
+    const options = {
+      column: 3,
+      float: true,
+      cellHeight: "80px",
+      minRow: 2,
+      maxRow: 2,
+    };
+
+    GridStack.addGrid(document.getElementById("carWrapper"), options);
+  };
+
   render() {
     return (
-      <div>
+      <div id="thisDiv">
         <button type="button" onClick={this.addNewWidget}>
           Add Widget
         </button>
+        <button type="button" onClick={this.addCars}>
+          Add Cars
+        </button>
         {this.state.info}
-        <MainStyles.GridWrapper>
+        <MainStyles.GridWrapper id="gridWrapper">
           <section className="grid-stack grid-stack-N"></section>
         </MainStyles.GridWrapper>
+        <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
       </div>
     );
   }
