@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.css";
 import "gridstack/dist/h5/gridstack-dd-native";
+import "gridstack/dist/gridstack-extra.css";
+
+import MainStyles from "./styles/MainStyles";
 
 class Main extends Component {
   constructor(props) {
@@ -20,13 +23,12 @@ class Main extends Component {
     };
   }
 
-  
-
   componentDidMount() {
     // once the component mounts it initialises the gridstack
     this.grid = GridStack.init({
+      column: 6,
       float: true,
-      cellHeight: "100px",
+      cellHeight: "80px",
       minRow: 6,
       maxRow: 6,
     });
@@ -80,7 +82,9 @@ class Main extends Component {
           Add Widget
         </button>
         {this.state.info}
-        <section className="grid-stack"></section>
+        <MainStyles.GridWrapper>
+          <section className="grid-stack grid-stack-N"></section>
+        </MainStyles.GridWrapper>
       </div>
     );
   }
