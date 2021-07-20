@@ -13,12 +13,22 @@ class Main extends Component {
       count: 0,
       info: "",
       items: [
-        { x: 0, y: 0, h: 1, w: 2 },
-        { x: 2, y: 0, h: 1, w: 2 },
-        { x: 4, y: 0, h: 1, w: 2 },
-        { x: 6, y: 0, h: 1, w: 2 },
-        { x: 8, y: 0, h: 1, w: 2 },
-        { x: 10, y: 0, h: 1, w: 2 },
+        { x: 0, y: 0, h: 1, w: 1, name: "Day", id: 0 },
+        { x: 1, y: 0, h: 1, w: 1, name: "Dylan", id: 1 },
+        { x: 2, y: 0, h: 1, w: 1, name: "Erik", id: 2 },
+        { x: 3, y: 0, h: 1, w: 1, name: "Han", id: 3 },
+        { x: 4, y: 0, h: 1, w: 1, name: "Michael", id: 4 },
+        { x: 5, y: 0, h: 1, w: 1, name: "Oscar", id: 5 },
+        { x: 6, y: 0, h: 1, w: 1, name: "Jess", id: 6 },
+        { x: 7, y: 0, h: 1, w: 1, name: "Carina", id: 7 },
+        { x: 8, y: 0, h: 1, w: 1, name: "Marie", id: 8 },
+        { x: 9, y: 0, h: 1, w: 1, name: "Imelda", id: 9 },
+        { x: 0, y: 1, h: 1, w: 1, name: "Monday" },
+        { x: 0, y: 2, h: 1, w: 1, name: "Tuesday" },
+        { x: 0, y: 3, h: 1, w: 1, name: "Wednesday" },
+        { x: 0, y: 4, h: 1, w: 1, name: "Thursday" },
+        { x: 0, y: 5, h: 1, w: 1, name: "Friday" },
+        { x: 0, y: 6, h: 1, w: 1, name: "Last Friday" },
       ],
     };
   }
@@ -26,23 +36,30 @@ class Main extends Component {
   componentDidMount() {
     // once the component mounts it initialises the gridstack
     this.grid = GridStack.init({
-      column: 6,
+      column: 10,
       float: true,
       cellHeight: "80px",
-      minRow: 6,
-      maxRow: 6,
+      minRow: 7,
+      maxRow: 7,
     });
 
-    // rendering each node as 0 instead of its number - CHECK
+    // renders initial items in state and sets id as name
+    const node = this.state.items; // array
 
-    const node = this.state.items;
-    node.forEach(() => {
-      node.id = node.content = String(this.state.count);
-      this.setState((prevState) => ({
-        count: prevState.count + 1,
-      }));
+    for (let i = 0; i < node.length; i++) {
+      node.id = node.content = String(this.state.items[i].name);
+      node.x = node[i].x
+      node.y = node[i].y
+      node.w = node[i].w
+      node.h = node[i].h
       this.grid.addWidget(node);
-    });
+    }
+
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
+
+    console.log(node);
 
     this.grid.on("dragstop", (event, element) => {
       const node = element.gridstackNode;
@@ -63,8 +80,8 @@ class Main extends Component {
 
   addNewWidget = () => {
     const node = this.state.items[this.state.count] || {
-      x: 1,
-      y: 1,
+      x: 4,
+      y: 6,
       w: 1,
       h: 2,
     };
