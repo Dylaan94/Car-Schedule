@@ -13,16 +13,16 @@ class Main extends Component {
       count: 0,
       info: "",
       items: [
-        { x: 0, y: 0, h: 1, w: 1, name: "Day", id: 0 },
-        { x: 1, y: 0, h: 1, w: 1, name: "Dylan", id: 1 },
-        { x: 2, y: 0, h: 1, w: 1, name: "Erik", id: 2 },
-        { x: 3, y: 0, h: 1, w: 1, name: "Han", id: 3 },
-        { x: 4, y: 0, h: 1, w: 1, name: "Michael", id: 4 },
-        { x: 5, y: 0, h: 1, w: 1, name: "Oscar", id: 5 },
-        { x: 6, y: 0, h: 1, w: 1, name: "Jess", id: 6 },
-        { x: 7, y: 0, h: 1, w: 1, name: "Carina", id: 7 },
-        { x: 8, y: 0, h: 1, w: 1, name: "Marie", id: 8 },
-        { x: 9, y: 0, h: 1, w: 1, name: "Imelda", id: 9 },
+        { x: 0, y: 0, h: 1, w: 1, name: "Day" },
+        { x: 1, y: 0, h: 1, w: 1, name: "Dylan" },
+        { x: 2, y: 0, h: 1, w: 1, name: "Erik" },
+        { x: 3, y: 0, h: 1, w: 1, name: "Han" },
+        { x: 4, y: 0, h: 1, w: 1, name: "Michael" },
+        { x: 5, y: 0, h: 1, w: 1, name: "Oscar" },
+        { x: 6, y: 0, h: 1, w: 1, name: "Jess" },
+        { x: 7, y: 0, h: 1, w: 1, name: "Carina" },
+        { x: 8, y: 0, h: 1, w: 1, name: "Marie" },
+        { x: 9, y: 0, h: 1, w: 1, name: "Imelda" },
         { x: 0, y: 1, h: 1, w: 1, name: "Monday" },
         { x: 0, y: 2, h: 1, w: 1, name: "Tuesday" },
         { x: 0, y: 3, h: 1, w: 1, name: "Wednesday" },
@@ -38,6 +38,8 @@ class Main extends Component {
     this.grid = GridStack.init({
       column: 10,
       float: true,
+      disableDrag: true,
+      disableResize: true,
       cellHeight: "80px",
       minRow: 7,
       maxRow: 7,
@@ -48,10 +50,10 @@ class Main extends Component {
 
     for (let i = 0; i < node.length; i++) {
       node.id = node.content = String(this.state.items[i].name);
-      node.x = node[i].x
-      node.y = node[i].y
-      node.w = node[i].w
-      node.h = node[i].h
+      node.x = node[i].x;
+      node.y = node[i].y;
+      node.w = node[i].w;
+      node.h = node[i].h;
       this.grid.addWidget(node);
     }
 
