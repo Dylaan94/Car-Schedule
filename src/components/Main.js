@@ -38,8 +38,8 @@ class Main extends Component {
     this.grid = GridStack.init({
       column: 10,
       float: true,
-      disableDrag: true,
-      disableResize: true,
+      // disableDrag: true,
+      // disableResize: true,
       cellHeight: "80px",
       minRow: 7,
       maxRow: 7,
@@ -54,7 +54,10 @@ class Main extends Component {
       node.y = node[i].y;
       node.w = node[i].w;
       node.h = node[i].h;
-      this.grid.addWidget(node);
+      node.noResize = true;
+      node.locked = true;
+      node.noMove = true;
+      this.grid.addWidget(node)
     }
 
     this.setState((prevState) => ({

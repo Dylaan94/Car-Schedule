@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const GridWrapper = styled.div`
-width: 90vw;
+width: 70vw;
 
 
 
