@@ -67,11 +67,24 @@ class Main extends Component {
       column: 3,
       float: true,
       cellHeight: "80px",
-      minRow: 2,
-      maxRow: 2,
+      minRow: 3,
+      maxRow: 3,
     };
 
-    GridStack.addGrid(document.getElementById("carWrapper"), options);
+    this.carGrid = GridStack.addGrid(
+      document.getElementById("carWrapper"),
+      options
+    );
+
+    const carNode = this.state.choice; // car choices array
+    for (let i = 0; i < carNode.length; i++) {
+      carNode.id = carNode.content = carNode[i].name;
+      carNode.x = carNode[i].x;
+      carNode.y = carNode[i].y;
+      carNode.w = carNode[i].w;
+      carNode.h = carNode[i].h;
+      this.carGrid.addWidget(carNode);
+    }
 
     this.setState((prevState) => ({
       count: prevState.count + 1,
@@ -110,7 +123,6 @@ class Main extends Component {
     this.grid.addWidget(node);
   };
 
-  
   render() {
     return (
       <div id="thisDiv">
@@ -118,10 +130,12 @@ class Main extends Component {
           Add Widget
         </button>
         {this.state.info}
-        <MainStyles.GridWrapper id="gridWrapper">
-          <section className="grid-stack grid-stack-N"></section>
-        </MainStyles.GridWrapper>
-        <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
+        <MainStyles.GridContainer>
+          <MainStyles.GridWrapper id="gridWrapper">
+            <section className="grid-stack grid-stack-N"></section>
+          </MainStyles.GridWrapper>
+          <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
+        </MainStyles.GridContainer>
       </div>
     );
   }
