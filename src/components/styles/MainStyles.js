@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 const GridContainer = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 const GridWrapper = styled.div`
-  width: 70vw;
+  width: 85vw;
   background: red;
 `;
 
 const CarWrapper = styled.div`
-  width: 30vw;
+  width: 10vw;
   background: yellow;
 `;
 

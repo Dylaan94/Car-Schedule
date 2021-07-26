@@ -46,6 +46,9 @@ class Main extends Component {
       cellHeight: "80px",
       minRow: 7,
       maxRow: 7,
+      acceptWidgets: function (el) {
+        return true;
+      },
     });
 
     // renders initial items in state and sets id as name
@@ -64,11 +67,14 @@ class Main extends Component {
     }
 
     const options = {
-      column: 3,
+      column: 1,
       float: true,
       cellHeight: "80px",
       minRow: 3,
       maxRow: 3,
+      acceptWidgets: function (el) {
+        return true;
+      },
     };
 
     this.carGrid = GridStack.addGrid(
