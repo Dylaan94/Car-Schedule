@@ -46,9 +46,7 @@ class Main extends Component {
       cellHeight: "80px",
       minRow: 7,
       maxRow: 7,
-      acceptWidgets: function (el) { // accepts widget from car grid
-        return true;
-      },
+      acceptWidgets: true,
     });
 
     // renders initial items in state and sets id as name
@@ -70,13 +68,12 @@ class Main extends Component {
     // options for Car Grid
     const options = {
       column: 1,
-      float: true,
+      float: false,
       cellHeight: "80px",
       minRow: 3,
       maxRow: 3,
-      acceptWidgets: function (el) {
-        return true;
-      },
+      acceptWidgets: true,
+
     };
 
     // init carGrid, attach to DOM and pass in options
@@ -86,6 +83,7 @@ class Main extends Component {
     );
 
     // sets placement data based on data in state
+
     const carNode = this.state.choice; // car choices array
     for (let i = 0; i < carNode.length; i++) {
       carNode.id = carNode.content = carNode[i].name;
@@ -102,7 +100,23 @@ class Main extends Component {
 
     console.log(node);
 
+    // init after drag stop
+
+    this.carGrid.on("dragstart", (event, element) => {
+      console.log("its being dragged yo")
+
+    for (let i = 0; i < carNode.length; i++) {
+      carNode.id = carNode.content = carNode[i].name;
+      carNode.x = carNode[i].x;
+      carNode.y = carNode[i].y;
+      carNode.w = carNode[i].w;
+      carNode.h = carNode[i].h;
+      this.carGrid.addWidget(carNode);
+    }
+    })
+
     this.grid.on("dragstop", (event, element) => {
+
       const node = element.gridstackNode;
       this.setState({
         info: `you just dragged node #${node.id} to ${node.x},${node.y} – good job!`,
