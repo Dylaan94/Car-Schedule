@@ -46,7 +46,7 @@ class Main extends Component {
       cellHeight: "80px",
       minRow: 7,
       maxRow: 7,
-      acceptWidgets: function (el) {
+      acceptWidgets: function (el) { // accepts widget from car grid
         return true;
       },
     });
@@ -54,6 +54,7 @@ class Main extends Component {
     // renders initial items in state and sets id as name
     const node = this.state.items; // array
 
+    // sets placement based on data in state
     for (let i = 0; i < node.length; i++) {
       node.id = node.content = String(this.state.items[i].name);
       node.x = node[i].x;
@@ -66,6 +67,7 @@ class Main extends Component {
       this.grid.addWidget(node);
     }
 
+    // options for Car Grid
     const options = {
       column: 1,
       float: true,
@@ -77,11 +79,13 @@ class Main extends Component {
       },
     };
 
+    // init carGrid, attach to DOM and pass in options
     this.carGrid = GridStack.addGrid(
       document.getElementById("carWrapper"),
       options
     );
 
+    // sets placement data based on data in state
     const carNode = this.state.choice; // car choices array
     for (let i = 0; i < carNode.length; i++) {
       carNode.id = carNode.content = carNode[i].name;
