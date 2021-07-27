@@ -73,7 +73,6 @@ class Main extends Component {
       minRow: 3,
       maxRow: 3,
       acceptWidgets: true,
-
     };
 
     // init carGrid, attach to DOM and pass in options
@@ -98,26 +97,38 @@ class Main extends Component {
       count: prevState.count + 1,
     }));
 
-    console.log(node);
+    console.log(carNode);
 
     // init after drag stop
 
     this.carGrid.on("dragstart", (event, element) => {
-      console.log("its being dragged yo")
+      const node = element.gridstackNode;
+      let nodeName = node.content
+      console.log(nodeName)
 
-    for (let i = 0; i < carNode.length; i++) {
-      carNode.id = carNode.content = carNode[i].name;
-      carNode.x = carNode[i].x;
-      carNode.y = carNode[i].y;
-      carNode.w = carNode[i].w;
-      carNode.h = carNode[i].h;
-      this.carGrid.addWidget(carNode);
-    }
-    })
+      // set reset based off name.
+      if (nodeName === "Special") {
+        console.log("special being dragged");
+      } else if (nodeName === "BOE") {
+        console.log("BOE being dragged");
+      } else if (nodeName ==="City") {
+        console.log("City being dragged");
+      }
+
+      // for (let i = 0; i < carNode.length; i++) {
+      //   carNode.id = carNode.content = carNode[i].name;
+      //   carNode.x = carNode[i].x;
+      //   carNode.y = carNode[i].y;
+      //   carNode.w = carNode[i].w;
+      //   carNode.h = carNode[i].h;
+      //   this.carGrid.addWidget(carNode);
+      // }
+
+    });
 
     this.grid.on("dragstop", (event, element) => {
-
       const node = element.gridstackNode;
+
       this.setState({
         info: `you just dragged node #${node.id} to ${node.x},${node.y} – good job!`,
       });
@@ -133,32 +144,16 @@ class Main extends Component {
     });
   }
 
-  addNewWidget = () => {
-    const node = this.state.items[this.state.count] || {
-      x: 4,
-      y: 6,
-      w: 1,
-      h: 2,
-    };
-    node.id = node.content = String(this.state.count);
-    this.setState((prevState) => ({
-      count: prevState.count + 1,
-    }));
-    this.grid.addWidget(node);
-  };
-
   render() {
     return (
       <div id="thisDiv">
-        <button type="button" onClick={this.addNewWidget}>
-          Add Widget
-        </button>
         {this.state.info}
         <MainStyles.GridContainer>
           <MainStyles.GridWrapper id="gridWrapper">
             <section className="grid-stack grid-stack-N"></section>
           </MainStyles.GridWrapper>
-          <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
+          <MainStyles.CarWrapper id="carWrapper">
+          </MainStyles.CarWrapper>
         </MainStyles.GridContainer>
       </div>
     );
