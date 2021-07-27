@@ -57,8 +57,9 @@ class Main extends Component {
       node.id = node.content = String(this.state.items[i].name);
       node.x = node[i].x;
       node.y = node[i].y;
-      node.w = node[i].w;
       node.h = node[i].h;
+      node.w = node[i].w;
+
       node.noResize = true;
       node.locked = true;
       node.noMove = true;
@@ -72,7 +73,7 @@ class Main extends Component {
       cellHeight: "80px",
       minRow: 3,
       maxRow: 3,
-      acceptWidgets: true,
+      acceptWidgets: false,
     };
 
     // init carGrid, attach to DOM and pass in options
@@ -83,13 +84,15 @@ class Main extends Component {
 
     // sets placement data based on data in state
 
-    const carNode = this.state.choice; // car choices array
+    let carNode = this.state.choice; // car choices array
+
     for (let i = 0; i < carNode.length; i++) {
       carNode.id = carNode.content = carNode[i].name;
       carNode.x = carNode[i].x;
       carNode.y = carNode[i].y;
-      carNode.w = carNode[i].w;
       carNode.h = carNode[i].h;
+      carNode.w = carNode[i].w;
+
       this.carGrid.addWidget(carNode);
     }
 
@@ -100,19 +103,37 @@ class Main extends Component {
     console.log(carNode);
 
     // init after drag stop
-
+    // sets nodeName to be checked and refilled if not there.
     this.carGrid.on("dragstart", (event, element) => {
       const node = element.gridstackNode;
-      let nodeName = node.content
-      console.log(nodeName)
+      let nodeName = node.content;
+      console.log(nodeName);
 
       // set reset based off name.
       if (nodeName === "Special") {
         console.log("special being dragged");
+        carNode.id = carNode.content = "Special";
+        carNode.x = 2;
+        carNode.y = 0;
+        carNode.h = 1;
+        carNode.w = 1;
+        this.carGrid.addWidget(carNode);
       } else if (nodeName === "BOE") {
         console.log("BOE being dragged");
-      } else if (nodeName ==="City") {
+        carNode.id = carNode.content = "BOE";
+        carNode.x = 0;
+        carNode.y = 0;
+        carNode.h = 1;
+        carNode.w = 1;
+        this.carGrid.addWidget(carNode);
+      } else if (nodeName === "City") {
         console.log("City being dragged");
+        carNode.id = carNode.content = "City";
+        carNode.x = 1;
+        carNode.y = 0;
+        carNode.h = 1;
+        carNode.w = 1;
+        this.carGrid.addWidget(carNode);
       }
 
       // for (let i = 0; i < carNode.length; i++) {
@@ -123,7 +144,6 @@ class Main extends Component {
       //   carNode.h = carNode[i].h;
       //   this.carGrid.addWidget(carNode);
       // }
-
     });
 
     this.grid.on("dragstop", (event, element) => {
@@ -152,8 +172,7 @@ class Main extends Component {
           <MainStyles.GridWrapper id="gridWrapper">
             <section className="grid-stack grid-stack-N"></section>
           </MainStyles.GridWrapper>
-          <MainStyles.CarWrapper id="carWrapper">
-          </MainStyles.CarWrapper>
+          <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
         </MainStyles.GridContainer>
       </div>
     );
