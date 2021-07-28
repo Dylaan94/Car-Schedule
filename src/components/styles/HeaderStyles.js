@@ -10,6 +10,7 @@ const Header = styled.div`
   background: #d3d3d3;
   font-size: 2em;
   font-weight: 900;
+  
 `;
 
 const HeaderStyles = {

@@ -174,6 +174,9 @@ class Main extends Component {
           </MainStyles.GridWrapper>
           <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
         </MainStyles.GridContainer>
+        <button>
+          Save schedule
+        </button>
       </div>
     );
   }

@@ -7,6 +7,9 @@ const Header = (props) => {
       <HeaderStyles.Header>
         Onomichi City BOE Car Schedule
       </HeaderStyles.Header>
+      <div>
+        The dates will go here
+      </div>
     </div>
   );
 };
