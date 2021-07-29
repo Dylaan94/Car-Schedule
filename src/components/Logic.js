@@ -1,9 +1,38 @@
 import React from "react";
 
-let addToDataArray = (node) => {
-    let widgetData = node;
-    console.log("add data started")
-    console.log(widgetData)
-}
+const DaysOfWeek = {
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+};
 
-export default addToDataArray
+const Names = {
+  1: "Dylan",
+  2: "Erik",
+  3: "Han",
+  4: "Michael",
+  5: "Oscar",
+  6: "Jess",
+  7: "Carina",
+  8: "Marie",
+  9: "Imelda",
+};
+
+//takes in data from grid on drop
+
+let addToDataArray = (node) => {
+  // set data based on DaysOfWeek and Names object
+  let widgetData = node;
+  let data = {
+    day: DaysOfWeek[widgetData.y],
+    name: Names[widgetData.x],
+  };
+  // assign to widgetData object
+  Object.assign(widgetData, data);
+  console.log(widgetData);
+};
+
+export default addToDataArray;

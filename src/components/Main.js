@@ -5,7 +5,7 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/gridstack-extra.css";
 
 import MainStyles from "./styles/MainStyles";
-import addToDataArray from "./Logic"
+import addToDataArray from "./Logic";
 
 class Main extends Component {
   constructor(props) {
@@ -97,10 +97,6 @@ class Main extends Component {
       this.carGrid.addWidget(carNode);
     }
 
-    this.setState((prevState) => ({
-      count: prevState.count + 1,
-    }));
-
     console.log(carNode);
 
     // init after drag stop
@@ -136,31 +132,15 @@ class Main extends Component {
         carNode.w = 1;
         this.carGrid.addWidget(carNode);
       }
-
-
     });
 
-    this.grid.on('dropped', (event, previousWidget, newWidget) => {
-
-      console.log(newWidget)
-            addToDataArray(newWidget);
-    })
+    this.grid.on("dropped", (event, previousWidget, newWidget) => {
+      addToDataArray(newWidget);
+    });
 
     this.grid.on("dragstop", (event, element) => {
       const node = element.gridstackNode;
-
-      this.setState({
-        info: `you just dragged node #${node.id} to ${node.x},${node.y} – good job!`,
-      });
-
-      // Clear the info text after a two second timeout.
-      // Clears previous timeout first.
-      window.clearTimeout(this.timerId);
-      this.timerId = window.setTimeout(() => {
-        this.setState({
-          info: "",
-        });
-      }, 2000);
+      addToDataArray(node)
     });
   }
 
@@ -174,9 +154,7 @@ class Main extends Component {
           </MainStyles.GridWrapper>
           <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
         </MainStyles.GridContainer>
-        <button>
-          Save schedule
-        </button>
+        <button>Save schedule</button>
       </div>
     );
   }
