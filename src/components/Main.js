@@ -5,6 +5,7 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/gridstack-extra.css";
 
 import MainStyles from "./styles/MainStyles";
+import addToDataArray from "./Logic"
 
 class Main extends Component {
   constructor(props) {
@@ -136,15 +137,14 @@ class Main extends Component {
         this.carGrid.addWidget(carNode);
       }
 
-      // for (let i = 0; i < carNode.length; i++) {
-      //   carNode.id = carNode.content = carNode[i].name;
-      //   carNode.x = carNode[i].x;
-      //   carNode.y = carNode[i].y;
-      //   carNode.w = carNode[i].w;
-      //   carNode.h = carNode[i].h;
-      //   this.carGrid.addWidget(carNode);
-      // }
+
     });
+
+    this.grid.on('dropped', (event, previousWidget, newWidget) => {
+
+      console.log(newWidget)
+            addToDataArray(newWidget);
+    })
 
     this.grid.on("dragstop", (event, element) => {
       const node = element.gridstackNode;
