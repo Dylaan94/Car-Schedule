@@ -84,7 +84,7 @@ class Main extends Component {
     );
 
     // sets placement data based on data in state
-
+    // this is causing each carNode object to have data from state in
     let carNode = this.state.choice; // car choices array
 
     for (let i = 0; i < carNode.length; i++) {
@@ -93,7 +93,7 @@ class Main extends Component {
       carNode.y = carNode[i].y;
       carNode.h = carNode[i].h;
       carNode.w = carNode[i].w;
-
+      carNode.noResize = true;
       this.carGrid.addWidget(carNode);
     }
 
@@ -114,6 +114,7 @@ class Main extends Component {
         carNode.y = 0;
         carNode.h = 1;
         carNode.w = 1;
+        carNode.noResize = true;
         this.carGrid.addWidget(carNode);
       } else if (nodeName === "BOE") {
         console.log("BOE being dragged");
@@ -122,6 +123,7 @@ class Main extends Component {
         carNode.y = 0;
         carNode.h = 1;
         carNode.w = 1;
+        carNode.noResize = true;
         this.carGrid.addWidget(carNode);
       } else if (nodeName === "City") {
         console.log("City being dragged");
@@ -130,6 +132,7 @@ class Main extends Component {
         carNode.y = 0;
         carNode.h = 1;
         carNode.w = 1;
+        carNode.noResize = true;
         this.carGrid.addWidget(carNode);
       }
     });
@@ -140,7 +143,7 @@ class Main extends Component {
 
     this.grid.on("dragstop", (event, element) => {
       const node = element.gridstackNode;
-      addToDataArray(node)
+      addToDataArray(node);
     });
   }
 

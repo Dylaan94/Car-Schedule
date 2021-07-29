@@ -41,5 +41,9 @@
 }
 
 .grid-stack-item-content {
-  background: blue;
+  display: flex;
+  justify-content: center;
+  background: #5c95ff;
+  align-items: center;
+  border-radius: 10px;
 }
