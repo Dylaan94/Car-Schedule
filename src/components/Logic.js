@@ -1,5 +1,7 @@
 import React from "react";
 
+const dataArray = [];
+
 const DaysOfWeek = {
   1: "Monday",
   2: "Tuesday",
@@ -32,7 +34,10 @@ let addToDataArray = (node) => {
   };
   // assign to widgetData object
   Object.assign(widgetData, data);
-  console.log(widgetData);
+    console.log(widgetData);
+
+    dataArray.push(widgetData)
+    console.log(dataArray)
 };
 
 export default addToDataArray;
