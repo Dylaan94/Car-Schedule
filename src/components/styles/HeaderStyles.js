@@ -10,11 +10,22 @@ const Header = styled.div`
   background: #d3d3d3;
   font-size: 2em;
   font-weight: 900;
-  
+`;
+
+const DatePicker = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const Dates = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
 
 const HeaderStyles = {
   Header: Header,
+  Dates: Dates,
+  DatePicker: DatePicker,
 };
 
 export default HeaderStyles;
