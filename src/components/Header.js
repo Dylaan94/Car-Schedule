@@ -49,10 +49,10 @@ const Header = (props) => {
       </HeaderStyles.DatePicker>
       <HeaderStyles.Dates>
         <h2 className="date" id="startDate">
-          Mon Jul 26 2021
+          Mon Jul 26 2021 {/*placeholder date*/}
         </h2>
         <h2 classname="date" id="endDate">
-          Fri Jul 30 2021
+          Fri Jul 30 2021 {/*placeholder date*/}
         </h2>
       </HeaderStyles.Dates>
     </div>

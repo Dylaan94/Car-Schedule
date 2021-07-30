@@ -7,9 +7,10 @@ const Header = styled.div`
   align-items: center;
   height: 10vh;
   color: #161a1d;
-  background: #d3d3d3;
+  background: white;
   font-size: 2em;
   font-weight: 900;
+  border-bottom: 2px solid rgb(241, 242, 249);
 `;
 
 const DatePicker = styled.div`
