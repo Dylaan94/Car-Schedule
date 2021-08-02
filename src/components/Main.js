@@ -98,6 +98,7 @@ class Main extends Component {
     }
 
     console.log(carNode);
+    console.log(document.querySelectorAll("div[gs-id='Michael']"))
 
     // init after drag stop
     // sets nodeName to be checked and refilled if not there.

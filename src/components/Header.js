@@ -5,7 +5,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Header = (props) => {
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [endDate, setEndDate] = useState(new Date());
+
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
 
   let handleStartDate = (date) => {
     let dateArray = [date].join(" ").split(" ");
@@ -35,17 +39,41 @@ const Header = (props) => {
       <HeaderStyles.Header>Onomichi City BOE Car Schedule</HeaderStyles.Header>
       <HeaderStyles.DatePicker>
         <DatePicker
+          selectsRange={true}
+          startDate={startDate}
+          endDate={endDate}
+          onChange={(update) => {
+            setDateRange(update);
+          }}
+          onCalendarClose={() => {
+            handleStartDate(startDate);
+            handleEndDate(endDate);
+          }}
+          withPortal
+        />
+
+        {/* <DatePicker
           selected={startDate}
-          onChange={
-            ((date) => setStartDate(date), (date) => handleStartDate(date))
-          }
+          onChange={(date) => {
+            setStartDate(date);
+            handleStartDate(date);
+          }}
+          placeholderText="Select Start Date"
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
         />
         <DatePicker
-          selected={startDate}
-          onChange={
-            ((date) => setStartDate(date), (date) => handleEndDate(date))
-          }
-        />
+          selected={endDate}
+          onChange={(date) => {
+            setEndDate(date);
+            handleEndDate(date);
+          }}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+        /> */}
       </HeaderStyles.DatePicker>
       <HeaderStyles.Dates>
         <h2 className="date" id="startDate">

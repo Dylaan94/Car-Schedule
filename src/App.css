@@ -10,11 +10,22 @@ html, body {
   background: #f8f9ff;
 }
 
+.grid-stack-item {
+    background: #caf0f8;
+      border-radius: 5px;
+    
+}
 
 .grid-stack-item-content {
   display: flex;
   justify-content: center;
   background: #caf0f8;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+
+/*gridstack selectors */
+
+[gs-id='Michael'] {
+  background: blue;
 }
