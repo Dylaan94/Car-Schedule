@@ -31,13 +31,17 @@ let addToDataArray = (node) => {
   let data = {
     day: DaysOfWeek[widgetData.y],
     name: Names[widgetData.x],
+    type: widgetData.id,
+    h: widgetData.h,
+    w: widgetData.w,
+    x: widgetData.x,
+    y: widgetData.y,
   };
-  // assign to widgetData object
-  Object.assign(widgetData, data);
-    console.log(widgetData);
+  console.log(data);
 
-    dataArray.push(widgetData)
-    console.log(dataArray)
+  // push data to array to be stored.
+  dataArray.push(data);
+  console.log(dataArray);
 };
 
 export default addToDataArray;

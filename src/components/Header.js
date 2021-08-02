@@ -5,31 +5,21 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Header = (props) => {
-  // const [startDate, setStartDate] = useState(new Date());
-  // const [endDate, setEndDate] = useState(new Date());
-
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
 
   let handleStartDate = (date) => {
     let dateArray = [date].join(" ").split(" ");
     dateArray.length = 4; // mutates array to remove time stamp
-    updateStartDate(dateArray);
+    // dynamically update DOM
+    let startDateString = dateArray.join(" ");
+    document.getElementById("startDate").innerHTML = startDateString;
   };
 
   let handleEndDate = (date) => {
     let dateArray = [date].join(" ").split(" ");
     dateArray.length = 4; // mutates array to remove time stamp
-    updateEndDate(dateArray);
-  };
-
-  let updateStartDate = (dateArray) => {
-    let startDateString = dateArray.join(" ");
-    document.getElementById("startDate").innerHTML = startDateString;
-    console.log(startDateString);
-  };
-
-  let updateEndDate = (dateArray) => {
+    // dynamically update DOM
     let endDateString = dateArray.join(" ");
     document.getElementById("endDate").innerHTML = endDateString;
   };
@@ -49,31 +39,9 @@ const Header = (props) => {
             handleStartDate(startDate);
             handleEndDate(endDate);
           }}
+          placeholderText="Choose Dates"
           withPortal
         />
-
-        {/* <DatePicker
-          selected={startDate}
-          onChange={(date) => {
-            setStartDate(date);
-            handleStartDate(date);
-          }}
-          placeholderText="Select Start Date"
-          selectsStart
-          startDate={startDate}
-          endDate={endDate}
-        />
-        <DatePicker
-          selected={endDate}
-          onChange={(date) => {
-            setEndDate(date);
-            handleEndDate(date);
-          }}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-        /> */}
       </HeaderStyles.DatePicker>
       <HeaderStyles.Dates>
         <h2 className="date" id="startDate">
