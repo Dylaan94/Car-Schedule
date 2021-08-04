@@ -109,7 +109,7 @@ class Main extends Component {
     this.carGrid.on("dragstart", (event, element) => {
       const node = element.gridstackNode;
       let nodeName = node.content;
-      console.log(nodeName);
+      console.log("dragstart");
 
       // set reset based off name.
       if (nodeName === "Special") {
@@ -140,25 +140,18 @@ class Main extends Component {
         carNode.noResize = true;
         this.carGrid.addWidget(carNode);
       }
-    });
 
-    this.grid.on("dropped", (event, previousWidget, newWidget) => {
-      //newWidget.locked = true;
-      console.log(newWidget);
-      addToDataArray(newWidget);
-    });
-
-    this.carGrid.on("dragstart", (event, element) => {
       let currentWidgets = this.grid.getGridItems();
       console.log(currentWidgets);
       currentWidgets.forEach((widget) => {
         widget.gridstackNode.locked = true;
       });
+      
     });
 
-    this.carGrid.on("dragstop", (event, element) => {
-      let node = element.gridstackNode;
-      node.locked = false;
+    this.grid.on("dropped", (event, previousWidget, newWidget) => {
+      console.log(newWidget);
+      addToDataArray(newWidget);
     });
 
     this.grid.on("dragstart", (event, element) => {
