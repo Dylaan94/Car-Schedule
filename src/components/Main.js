@@ -41,6 +41,7 @@ class Main extends Component {
 
   componentDidMount() {
     // once the component mounts it initialises the gridstack
+
     this.grid = GridStack.init({
       column: 10,
       float: true,
@@ -48,6 +49,7 @@ class Main extends Component {
       minRow: 7,
       maxRow: 7,
       acceptWidgets: true,
+      class: "mainGrid",
     });
 
     // renders initial items in state and sets id as name
@@ -93,12 +95,14 @@ class Main extends Component {
       carNode.y = carNode[i].y;
       carNode.h = carNode[i].h;
       carNode.w = carNode[i].w;
+
       carNode.noResize = true;
+
       this.carGrid.addWidget(carNode);
     }
 
     console.log(carNode);
-    console.log(document.querySelectorAll("div[gs-id='Michael']"))
+    console.log(document.querySelectorAll("div[gs-id='Michael']"));
 
     // init after drag stop
     // sets nodeName to be checked and refilled if not there.
@@ -139,7 +143,41 @@ class Main extends Component {
     });
 
     this.grid.on("dropped", (event, previousWidget, newWidget) => {
+      //newWidget.locked = true;
+      console.log(newWidget);
       addToDataArray(newWidget);
+    });
+
+    this.carGrid.on("dragstart", (event, element) => {
+      let currentWidgets = this.grid.getGridItems();
+      console.log(currentWidgets);
+      currentWidgets.forEach((widget) => {
+        widget.gridstackNode.locked = true;
+      });
+    });
+
+    this.carGrid.on("dragstop", (event, element) => {
+      let node = element.gridstackNode;
+      node.locked = false;
+    });
+
+    this.grid.on("dragstart", (event, element) => {
+      let currentWidgets = this.grid.getGridItems();
+      currentWidgets.forEach((widget) => {
+        widget.gridstackNode.locked = true;
+      });
+      let node = element.gridstackNode;
+      node.locked = false;
+    });
+
+    this.grid.on("drag", (event, element) => {
+      let currentWidgets = this.grid.getGridItems();
+      console.log(currentWidgets);
+      currentWidgets.forEach((widget) => {
+        widget.gridstackNode.locked = true;
+      });
+      let node = element.gridstackNode;
+      node.locked = false;
     });
 
     this.grid.on("dragstop", (event, element) => {
