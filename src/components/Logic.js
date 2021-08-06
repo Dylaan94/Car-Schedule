@@ -36,6 +36,7 @@ let addToDataArray = (node) => {
     w: widgetData.w,
     x: widgetData.x,
     y: widgetData.y,
+    id: String(widgetData.x) + String(widgetData.y)
   };
   console.log(data);
 

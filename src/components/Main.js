@@ -141,12 +141,14 @@ class Main extends Component {
         this.carGrid.addWidget(carNode);
       }
 
+      // on dragstart sets all current widgets on grid to locked
+      // stops widgets from moving when dragging in
+
       let currentWidgets = this.grid.getGridItems();
       console.log(currentWidgets);
       currentWidgets.forEach((widget) => {
         widget.gridstackNode.locked = true;
       });
-      
     });
 
     this.grid.on("dropped", (event, previousWidget, newWidget) => {
@@ -156,20 +158,12 @@ class Main extends Component {
 
     this.grid.on("dragstart", (event, element) => {
       let currentWidgets = this.grid.getGridItems();
+      let node = element.gridstackNode;
+      // on dragstart sets widgets on board to locked
       currentWidgets.forEach((widget) => {
         widget.gridstackNode.locked = true;
       });
-      let node = element.gridstackNode;
-      node.locked = false;
-    });
-
-    this.grid.on("drag", (event, element) => {
-      let currentWidgets = this.grid.getGridItems();
-      console.log(currentWidgets);
-      currentWidgets.forEach((widget) => {
-        widget.gridstackNode.locked = true;
-      });
-      let node = element.gridstackNode;
+      // unlocks current node
       node.locked = false;
     });
 
