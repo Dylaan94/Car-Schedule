@@ -5,7 +5,7 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/gridstack-extra.css";
 
 import MainStyles from "./styles/MainStyles";
-import addToDataArray from "./Logic";
+import {addToDataArray, removeFromDataArray} from "./Logic";
 
 class Main extends Component {
   constructor(props) {
@@ -165,6 +165,9 @@ class Main extends Component {
       });
       // unlocks current node
       node.locked = false;
+
+      removeFromDataArray(node);
+
     });
 
     this.grid.on("dragstop", (event, element) => {

@@ -36,13 +36,30 @@ let addToDataArray = (node) => {
     w: widgetData.w,
     x: widgetData.x,
     y: widgetData.y,
-    id: String(widgetData.x) + String(widgetData.y)
+    id: String(widgetData.x) + String(widgetData.y),
+    index: dataArray.length + 1,
   };
-  console.log(data);
 
+
+  console.log(data);
   // push data to array to be stored.
   dataArray.push(data);
   console.log(dataArray);
 };
 
-export default addToDataArray;
+let removeFromDataArray = (node) => {
+  console.log("removing")
+
+  let widgetData = node;
+  let id = String(widgetData.x) + String(widgetData.y)
+
+  for (let i = 0; i < dataArray.length; i++) {
+    if (dataArray[i].id = id) {
+      console.log("already exists gotta go")
+      // remove
+    }
+  }
+
+};
+
+export { addToDataArray, removeFromDataArray };
