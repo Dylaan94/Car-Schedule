@@ -37,7 +37,7 @@ let addToDataArray = (node) => {
     x: widgetData.x,
     y: widgetData.y,
     id: String(widgetData.x) + String(widgetData.y),
-    index: dataArray.length + 1,
+  //  index: dataArray.length,
   };
 
   console.log(data);
@@ -52,13 +52,14 @@ let removeFromDataArray = (node) => {
   let id = String(widgetData.x) + String(widgetData.y);
   // checks if id already exists (that space has already been populated)
   for (let i = 0; i < dataArray.length; i++) {
-    if ((dataArray[i].id = id)) {
+    if ((dataArray[i].id == id)) {
       // removes from array based on index
-      let index = dataArray[i].index;
-      dataArray.splice(index, 1);
+    //  let index = dataArray[i].index;
+      dataArray.splice(i, 1);
       console.log(dataArray);
     }
   }
 };
+
 
 export { addToDataArray, removeFromDataArray };
