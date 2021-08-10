@@ -40,7 +40,6 @@ let addToDataArray = (node) => {
     index: dataArray.length + 1,
   };
 
-
   console.log(data);
   // push data to array to be stored.
   dataArray.push(data);
@@ -48,18 +47,18 @@ let addToDataArray = (node) => {
 };
 
 let removeFromDataArray = (node) => {
-  console.log("removing")
-
+  console.log("removing");
   let widgetData = node;
-  let id = String(widgetData.x) + String(widgetData.y)
-
+  let id = String(widgetData.x) + String(widgetData.y);
+  // checks if id already exists (that space has already been populated)
   for (let i = 0; i < dataArray.length; i++) {
-    if (dataArray[i].id = id) {
-      console.log("already exists gotta go")
-      // remove
+    if ((dataArray[i].id = id)) {
+      // removes from array based on index
+      let index = dataArray[i].index;
+      dataArray.splice(index, 1);
+      console.log(dataArray);
     }
   }
-
 };
 
 export { addToDataArray, removeFromDataArray };
