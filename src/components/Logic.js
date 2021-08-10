@@ -49,6 +49,7 @@ let addToDataArray = (node) => {
   console.log(dataArray);
 };
 
+// deletes widget from dataArray whilst it is being moved
 let removeFromDataArray = (node) => {
   console.log("removing");
   let widgetData = node;
