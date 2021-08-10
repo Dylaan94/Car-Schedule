@@ -8,7 +8,7 @@ const DaysOfWeek = {
   3: "Wednesday",
   4: "Thursday",
   5: "Friday",
-  6: "Saturday",
+  6: "Last Friday",
 };
 
 const Names = {
@@ -28,7 +28,10 @@ const Names = {
 let addToDataArray = (node) => {
   // set data based on DaysOfWeek and Names object
   let widgetData = node;
+
   let data = {
+    startDate: document.getElementById("startDate").innerHTML,
+    endDate: document.getElementById("endDate").innerHTML,
     day: DaysOfWeek[widgetData.y],
     name: Names[widgetData.x],
     type: widgetData.id,
@@ -62,4 +65,4 @@ let removeFromDataArray = (node) => {
 };
 
 
-export { addToDataArray, removeFromDataArray };
+export { addToDataArray, removeFromDataArray, dataArray };

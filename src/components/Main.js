@@ -165,7 +165,6 @@ class Main extends Component {
       });
       // unlocks current node
       node.locked = false;
-
       removeFromDataArray(node);
 
     });
