@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Car-Schedule/static/css/main.100f6165.chunk.css",
+    "main.js": "/Car-Schedule/static/js/main.e83c46d4.chunk.js",
+    "main.js.map": "/Car-Schedule/static/js/main.e83c46d4.chunk.js.map",
+    "runtime-main.js": "/Car-Schedule/static/js/runtime-main.a0d291cc.js",
+    "runtime-main.js.map": "/Car-Schedule/static/js/runtime-main.a0d291cc.js.map",
+    "static/css/2.e65bd7a3.chunk.css": "/Car-Schedule/static/css/2.e65bd7a3.chunk.css",
+    "static/js/2.b11584bd.chunk.js": "/Car-Schedule/static/js/2.b11584bd.chunk.js",
+    "static/js/2.b11584bd.chunk.js.map": "/Car-Schedule/static/js/2.b11584bd.chunk.js.map",
+    "static/js/3.c91a71ab.chunk.js": "/Car-Schedule/static/js/3.c91a71ab.chunk.js",
+    "static/js/3.c91a71ab.chunk.js.map": "/Car-Schedule/static/js/3.c91a71ab.chunk.js.map",
+    "index.html": "/Car-Schedule/index.html",
+    "static/css/2.e65bd7a3.chunk.css.map": "/Car-Schedule/static/css/2.e65bd7a3.chunk.css.map",
+    "static/css/main.100f6165.chunk.css.map": "/Car-Schedule/static/css/main.100f6165.chunk.css.map",
+    "static/js/2.b11584bd.chunk.js.LICENSE.txt": "/Car-Schedule/static/js/2.b11584bd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a0d291cc.js",
+    "static/css/2.e65bd7a3.chunk.css",
+    "static/js/2.b11584bd.chunk.js",
+    "static/css/main.100f6165.chunk.css",
+    "static/js/main.e83c46d4.chunk.js"
+  ]
+}
