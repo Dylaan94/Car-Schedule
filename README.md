@@ -7,6 +7,7 @@ A simple scheduling web app for organising the car weekly car schedule. Built in
 - Save based on date
 - Load from storage (in progress)
 - Load past schedules from storage (in progress)
+- Login functionality (in progress)
 
 ## demo
 
