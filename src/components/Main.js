@@ -6,7 +6,7 @@ import "gridstack/dist/gridstack-extra.css";
 
 import MainStyles from "./styles/MainStyles";
 import { addToDataArray, removeFromDataArray } from "./Logic";
-import Test from "./LocalStorage";
+import { ToStorage, FromStorage } from "./LocalStorage";
 
 class Main extends Component {
   constructor(props) {
@@ -185,7 +185,7 @@ class Main extends Component {
           </MainStyles.GridWrapper>
           <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
         </MainStyles.GridContainer>
-        <button onClick={Test}>Save schedule</button>
+        <button onClick={ToStorage}>Save schedule</button>
       </div>
     );
   }

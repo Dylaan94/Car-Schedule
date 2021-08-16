@@ -1,19 +1,23 @@
-import {dataArray} from "./Logic"
-
-
+import { dataArray } from "./Logic";
 
 let ToStorage = () => {
-    let dataArray_serialised = JSON.stringify(dataArray)
-    window.localStorage.setItem('saved schedule', dataArray_serialised)
-}
+  // uses JSON to store data as a string in local storage
+  let dataArray_serialised = JSON.stringify(dataArray);
+    window.localStorage.setItem("savedSchedule", dataArray_serialised);
+    console.log("Saved to storage!")
+};
 
 let FromStorage = () => {
-
-}
+  // parse from string
+  let dataArray_deserialised = JSON.parse(
+    window.localStorage.getItem("savedSchedule")
+  );
+  let dataArrayFromStorage = dataArray_deserialised;
+  console.log(dataArrayFromStorage);
+};
 
 let Test = () => {
-    console.log(dataArray)
-}
+  console.log(dataArray);
+};
 
-
-export default Test
+export { Test, ToStorage, FromStorage };
