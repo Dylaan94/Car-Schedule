@@ -8,3 +8,9 @@ let GridDataArray = [{
     
 }]
 
+let Test = () => {
+    console.log(dataArray)
+}
+
+
+export default Test

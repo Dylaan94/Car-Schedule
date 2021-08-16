@@ -5,7 +5,8 @@ import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/gridstack-extra.css";
 
 import MainStyles from "./styles/MainStyles";
-import {addToDataArray, removeFromDataArray} from "./Logic";
+import { addToDataArray, removeFromDataArray } from "./Logic";
+import Test from "./LocalStorage";
 
 class Main extends Component {
   constructor(props) {
@@ -166,7 +167,6 @@ class Main extends Component {
       // unlocks current node
       node.locked = false;
       removeFromDataArray(node);
-
     });
 
     this.grid.on("dragstop", (event, element) => {
@@ -185,7 +185,7 @@ class Main extends Component {
           </MainStyles.GridWrapper>
           <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
         </MainStyles.GridContainer>
-        <button>Save schedule</button>
+        <button onClick={Test}>Save schedule</button>
       </div>
     );
   }
