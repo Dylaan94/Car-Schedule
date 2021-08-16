@@ -1,12 +1,15 @@
-import React from "react";
-
 import {dataArray} from "./Logic"
 
 
 
-let GridDataArray = [{
-    
-}]
+let ToStorage = () => {
+    let dataArray_serialised = JSON.stringify(dataArray)
+    window.localStorage.setItem('saved schedule', dataArray_serialised)
+}
+
+let FromStorage = () => {
+
+}
 
 let Test = () => {
     console.log(dataArray)
