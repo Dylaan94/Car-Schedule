@@ -1,23 +1,26 @@
 import { dataArray } from "./Logic";
 
-let ToStorage = () => {
+let dataArrayFromStorage;
+
+let ToStorage = (props) => {
+  const {} = props
   // uses JSON to store data as a string in local storage
   let dataArray_serialised = JSON.stringify(dataArray);
-    window.localStorage.setItem("savedSchedule", dataArray_serialised);
-    console.log("Saved to storage!")
+  window.localStorage.setItem("savedSchedule", dataArray_serialised);
+  console.log("Saved to storage!");
+
+  return <div></div>;
 };
 
-let FromStorage = () => {
+const FromStorage = (props) => {
+  const {} = props
   // parse from string
   let dataArray_deserialised = JSON.parse(
     window.localStorage.getItem("savedSchedule")
   );
   let dataArrayFromStorage = dataArray_deserialised;
-  console.log(dataArrayFromStorage);
+
+  return <div>{console.log(dataArrayFromStorage)}</div>;
 };
 
-let Test = () => {
-  console.log(dataArray);
-};
-
-export { Test, ToStorage, FromStorage };
+export { ToStorage, FromStorage, dataArrayFromStorage };

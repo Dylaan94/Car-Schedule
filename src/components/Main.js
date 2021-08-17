@@ -6,8 +6,12 @@ import "gridstack/dist/gridstack-extra.css";
 
 import MainStyles from "./styles/MainStyles";
 import { addToDataArray, removeFromDataArray } from "./Logic";
-import { ToStorage, FromStorage } from "./LocalStorage";
+import { ToStorage, FromStorage, dataArrayFromStorage } from "./LocalStorage";
+import Footer from "./Footer";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
+import AppStyles from "./styles/AppStyles";
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +46,6 @@ class Main extends Component {
 
   componentDidMount() {
     // once the component mounts it initialises the gridstack
-
     this.grid = GridStack.init({
       column: 10,
       float: true,
@@ -178,14 +181,29 @@ class Main extends Component {
   render() {
     return (
       <div id="thisDiv">
-        {this.state.info}
-        <MainStyles.GridContainer>
-          <MainStyles.GridWrapper id="gridWrapper">
-            <section className="grid-stack grid-stack-N"></section>
-          </MainStyles.GridWrapper>
-          <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
-        </MainStyles.GridContainer>
+        <AppStyles.MainContainer>
+          <AppStyles.Sidebar>
+            <Sidebar />
+          </AppStyles.Sidebar>
+          <AppStyles.Container>
+            <AppStyles.Header>
+              <Header />
+            </AppStyles.Header>
+            <AppStyles.Main>
+              {this.state.info}
+              <MainStyles.GridContainer>
+                <MainStyles.GridWrapper id="gridWrapper">
+                  <section className="grid-stack grid-stack-N"></section>
+                </MainStyles.GridWrapper>
+                <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
+              </MainStyles.GridContainer>
+            </AppStyles.Main>
+          </AppStyles.Container>
+        </AppStyles.MainContainer>
         <button onClick={ToStorage}>Save schedule</button>
+        <AppStyles.Footer>
+          <Footer />
+        </AppStyles.Footer>
       </div>
     );
   }

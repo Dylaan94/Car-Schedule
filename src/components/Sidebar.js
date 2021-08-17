@@ -10,7 +10,7 @@ const Sidebar = (props) => {
         <li>
           <button onClick = {FromStorage}>Load Recent Schedule </button>
         </li>
-        <li><button> Delete Schedules </button></li>
+        <li><button onClick = {localStorage.clear()}> Delete Schedules </button></li>
       </SidebarStyles.SidebarHeader>
       <SidebarStyles.SidebarHistory>
         Schedule History
