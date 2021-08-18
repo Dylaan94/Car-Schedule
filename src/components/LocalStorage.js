@@ -3,7 +3,7 @@ import { dataArray } from "./Logic";
 let dataArrayFromStorage;
 
 let ToStorage = (props) => {
-  const {} = props
+  // const {} = props
   // uses JSON to store data as a string in local storage
   let dataArray_serialised = JSON.stringify(dataArray);
   window.localStorage.setItem("savedSchedule", dataArray_serialised);
@@ -13,7 +13,7 @@ let ToStorage = (props) => {
 };
 
 const FromStorage = (props) => {
-  const {} = props
+  // const {} = props
   // parse from string
   let dataArray_deserialised = JSON.parse(
     window.localStorage.getItem("savedSchedule")
