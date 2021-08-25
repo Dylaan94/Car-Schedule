@@ -51,6 +51,7 @@ class Main extends Component {
   handleLoadSchedule(e) {
     console.log("input being handled");
     FromStorage();
+    console.log(dataArrayFromStorage)
   }
 
   // will move all of this into a component in the future
@@ -188,12 +189,16 @@ class Main extends Component {
     });
   }
 
+  componentDidUpdate() {
+
+    // this.grid.makeWidget()
+  }
   render() {
     return (
       <div id="thisDiv">
         <AppStyles.MainContainer>
           <AppStyles.Sidebar>
-            <Sidebar values={this.state.saved} handleInput={this.handleLoadSchedule} />
+            <Sidebar values={this.state.saved} handleInput={FromStorage} />
           </AppStyles.Sidebar>
           <AppStyles.Container>
             <AppStyles.Header>
