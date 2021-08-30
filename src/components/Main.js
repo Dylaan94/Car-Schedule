@@ -11,7 +11,6 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
-
 import AppStyles from "./styles/AppStyles";
 class Main extends Component {
   constructor(props) {
@@ -48,10 +47,16 @@ class Main extends Component {
   }
 
   // handle load Schedule
-  handleLoadSchedule(e) {
-    console.log("input being handled");
-    FromStorage();
-    console.log(dataArrayFromStorage)
+  // child data comes from child component
+  handleLoadSchedule(childData) {
+    this.setState(
+      {
+        saved: [...this.state.saved, childData],
+      },
+      () => {
+        console.log(this.state); // setState is async, use callback for console.log
+      }
+    );
   }
 
   // will move all of this into a component in the future
@@ -190,7 +195,6 @@ class Main extends Component {
   }
 
   componentDidUpdate() {
-
     // this.grid.makeWidget()
   }
   render() {
@@ -198,7 +202,10 @@ class Main extends Component {
       <div id="thisDiv">
         <AppStyles.MainContainer>
           <AppStyles.Sidebar>
-            <Sidebar values={this.state.saved} handleInput={FromStorage} />
+            <Sidebar
+              values={this.state.saved}
+              handleInput={this.handleLoadSchedule}
+            />
           </AppStyles.Sidebar>
           <AppStyles.Container>
             <AppStyles.Header>

@@ -1,3 +1,4 @@
+import { Component } from "react";
 import { dataArray } from "./Logic";
 
 let dataArrayFromStorage;
@@ -13,14 +14,20 @@ let ToStorage = (props) => {
 };
 
 const FromStorage = (props) => {
-  // const {} = props
+  const { FromStorage } = props
   // parse from string
   let dataArray_deserialised = JSON.parse(
     window.localStorage.getItem("savedSchedule")
   );
   let dataArrayFromStorage = dataArray_deserialised;
-
-  return <div>{console.log(dataArrayFromStorage)}</div>;
+    console.log(dataArrayFromStorage)
+  return (
+    <div>
+      {dataArrayFromStorage}
+    </div>
+  )
 };
 
+
 export { ToStorage, FromStorage, dataArrayFromStorage };
+
