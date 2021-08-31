@@ -51,7 +51,7 @@ class Main extends Component {
   handleLoadSchedule(childData) {
     this.setState(
       {
-        saved: [...this.state.saved, childData],
+        saved:  childData
       },
       () => {
         console.log(this.state); // setState is async, use callback for console.log

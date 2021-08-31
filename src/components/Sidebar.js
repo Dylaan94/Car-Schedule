@@ -19,11 +19,11 @@ class Sidebar extends Component {
 
     this.setState(
       {
-        saved: [...this.state.saved, savedData],
+        saved: savedData,
       },
       () => {
         console.log(this.state); // setState is async so console log returned as callback
-        this.props.handleInput(this.state);
+        this.props.handleInput(this.state.saved); // send saved data to handleInput in main
       }
     );
   };
