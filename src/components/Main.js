@@ -44,6 +44,7 @@ class Main extends Component {
       saved: [],
     };
     this.handleLoadSchedule = this.handleLoadSchedule.bind(this);
+    this.handleClear = this.handleClear.bind(this)
   }
 
   // handle load Schedule
@@ -57,6 +58,10 @@ class Main extends Component {
         console.log(this.state); // setState is async, use callback for console.log
       }
     );
+  }
+
+  handleClear() {
+    console.log("clear clicked")
   }
 
   // will move all of this into a component in the future
@@ -223,6 +228,7 @@ class Main extends Component {
           </AppStyles.Container>
         </AppStyles.MainContainer>
         <button onClick={ToStorage}>Save schedule</button>
+        <button onClick={this.handleClear}>Clear grid</button>
         <AppStyles.Footer>
           <Footer />
         </AppStyles.Footer>
