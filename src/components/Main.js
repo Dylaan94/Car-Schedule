@@ -4,6 +4,8 @@ import "gridstack/dist/gridstack.css";
 import "gridstack/dist/h5/gridstack-dd-native";
 import "gridstack/dist/gridstack-extra.css";
 
+import $ from "jquery";
+
 import MainStyles from "./styles/MainStyles";
 import { addToDataArray, removeFromDataArray } from "./Logic";
 import { ToStorage, FromStorage, dataArrayFromStorage } from "./LocalStorage";
@@ -62,11 +64,12 @@ class Main extends Component {
 
   handleClear() {
     console.log("clear clicked")
+   
+    this.grid.removeWidget();
+    this.initGrid()
   }
 
-  // will move all of this into a component in the future
-  componentDidMount() {
-    // once the component mounts it initialises the gridstack
+  initGrid () {
     this.grid = GridStack.init({
       column: 10,
       float: true,
@@ -93,7 +96,9 @@ class Main extends Component {
       node.noMove = true;
       this.grid.addWidget(node);
     }
+  }
 
+  initCarGrid() {
     // options for Car Grid
     const options = {
       column: 1,
@@ -149,6 +154,7 @@ class Main extends Component {
       } else if (nodeName === "BOE") {
         console.log("BOE being dragged");
         carNode.id = carNode.content = "BOE";
+
         carNode.x = 0;
         carNode.y = 0;
         carNode.h = 1;
@@ -158,6 +164,7 @@ class Main extends Component {
       } else if (nodeName === "City") {
         console.log("City being dragged");
         carNode.id = carNode.content = "City";
+
         carNode.x = 1;
         carNode.y = 0;
         carNode.h = 1;
@@ -168,7 +175,6 @@ class Main extends Component {
 
       // on dragstart sets all current widgets on grid to locked
       // stops widgets from moving when dragging in
-
       let currentWidgets = this.grid.getGridItems();
       console.log(currentWidgets);
       currentWidgets.forEach((widget) => {
@@ -197,6 +203,12 @@ class Main extends Component {
       const node = element.gridstackNode;
       addToDataArray(node);
     });
+  }
+  // will move all of this into a component in the future
+  componentDidMount() {
+    // once the component mounts it initialises the gridstack
+    this.initGrid()
+    this.initCarGrid()
   }
 
   componentDidUpdate() {
