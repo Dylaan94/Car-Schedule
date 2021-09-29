@@ -46,7 +46,7 @@ class Main extends Component {
       saved: [],
     };
     this.handleLoadSchedule = this.handleLoadSchedule.bind(this);
-    this.handleClear = this.handleClear.bind(this)
+    this.handleClear = this.handleClear.bind(this);
   }
 
   // handle load Schedule
@@ -54,22 +54,25 @@ class Main extends Component {
   handleLoadSchedule(childData) {
     this.setState(
       {
-        saved:  childData
+        saved: childData,
       },
       () => {
         console.log(this.state); // setState is async, use callback for console.log
+        this.initSavedGrid();
       }
     );
+
+
   }
 
   handleClear() {
-    console.log("clear clicked")
-   
+    console.log("clear clicked");
+
     this.grid.removeWidget();
-    this.initGrid()
+    this.initGrid();
   }
 
-  initGrid () {
+  initGrid() {
     this.grid = GridStack.init({
       column: 10,
       float: true,
@@ -204,11 +207,29 @@ class Main extends Component {
       addToDataArray(node);
     });
   }
-  // will move all of this into a component in the future
+
+  initSavedGrid() {
+
+    const node = this.state.saved;
+
+    for (let i = 0; i < node.length; i++) {
+      node.id = node.content = String(this.state.saved[i].name);
+      node.x = node[i].x;
+      node.y = node[i].y;
+      node.h = node[i].h;
+      node.w = node[i].w;
+
+      node.noResize = true;
+      node.locked = true;
+      node.noMove = true;
+      this.grid.addWidget(node);
+    }
+  }
+
   componentDidMount() {
     // once the component mounts it initialises the gridstack
-    this.initGrid()
-    this.initCarGrid()
+    this.initGrid();
+    this.initCarGrid();
   }
 
   componentDidUpdate() {
