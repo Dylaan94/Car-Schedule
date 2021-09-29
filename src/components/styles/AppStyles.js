@@ -9,7 +9,7 @@ const Sidebar = styled.div`
   display: flex;
   flex-direction: row;
   width: 15vw;
-  height: 100vh;
+  height: 95vh;
   background: #08184e;
 `;
 
@@ -25,11 +25,17 @@ width: 85vw;`
 
 const Main = styled.div`
 display: flex;
+flex-direction: column;
 `
 
 const Footer = styled.div`
   display: flex;
   flex-direction: column;
+  height: 5vh;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
 `;
 
 const AppStyles = {

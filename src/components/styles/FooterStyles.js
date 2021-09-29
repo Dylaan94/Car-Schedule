@@ -3,6 +3,7 @@ import Main from "../Main";
 
 const Footer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 5vh;

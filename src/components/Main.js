@@ -257,14 +257,16 @@ class Main extends Component {
                 </MainStyles.GridWrapper>
                 <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
               </MainStyles.GridContainer>
+              <MainStyles.ButtonsWrapper>
+                <button className = "saveScheduleButton" onClick={ToStorage}>Save schedule</button>
+                <button className= "clearGridButton" onClick={this.handleClear}>Clear grid</button>
+              </MainStyles.ButtonsWrapper>
             </AppStyles.Main>
           </AppStyles.Container>
+          <AppStyles.Footer>
+            <Footer />
+          </AppStyles.Footer>
         </AppStyles.MainContainer>
-        <button onClick={ToStorage}>Save schedule</button>
-        <button onClick={this.handleClear}>Clear grid</button>
-        <AppStyles.Footer>
-          <Footer />
-        </AppStyles.Footer>
       </div>
     );
   }
