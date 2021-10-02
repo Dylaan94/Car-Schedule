@@ -47,20 +47,20 @@ class Main extends Component {
       ],
       saved: [],
     };
-    this.handleLoadSchedule = this.handleLoadSchedule.bind(this);
+    this.handleSaveSchedule = this.handleSaveSchedule.bind(this);
     this.handleClear = this.handleClear.bind(this);
   }
 
   // child data comes from the child sidebar component which updates the state
   // the state can then be used to set widgets based on data from local storage with initSavedGrid
-  handleLoadSchedule(childData) {
+  handleSaveSchedule(childData) {
     this.setState(
       {
         saved: childData,
       },
       () => {
         console.log(this.state); // setState is async, use callback for console.log
-        this.initSavedGrid();
+        //this.initSavedGrid();
       }
     );
   }
@@ -257,7 +257,10 @@ class Main extends Component {
                 <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
               </MainStyles.GridContainer>
               <MainStyles.ButtonsWrapper>
-                <SaveSchedule></SaveSchedule>
+                <SaveSchedule
+                  values={this.state.saved}
+                  handleInput={this.handleSaveSchedule}
+                ></SaveSchedule>
 
                 {/* <button className="saveScheduleButton" onClick={ToStorage}>
                   Save schedule
