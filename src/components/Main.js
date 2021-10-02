@@ -12,8 +12,10 @@ import { ToStorage, FromStorage, dataArrayFromStorage } from "./LocalStorage";
 import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import SaveSchedule from "./SaveSchedule";
 
 import AppStyles from "./styles/AppStyles";
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -49,8 +51,8 @@ class Main extends Component {
     this.handleClear = this.handleClear.bind(this);
   }
 
-  // handle load Schedule
-  // child data comes from child component
+  // child data comes from the child sidebar component which updates the state
+  // the state can then be used to set widgets based on data from local storage with initSavedGrid
   handleLoadSchedule(childData) {
     this.setState(
       {
@@ -61,13 +63,10 @@ class Main extends Component {
         this.initSavedGrid();
       }
     );
-
-
   }
 
   handleClear() {
     console.log("clear clicked");
-
     this.grid.removeWidget();
     this.initGrid();
   }
@@ -209,7 +208,6 @@ class Main extends Component {
   }
 
   initSavedGrid() {
-
     const node = this.state.saved;
 
     for (let i = 0; i < node.length; i++) {
@@ -235,6 +233,7 @@ class Main extends Component {
   componentDidUpdate() {
     // this.grid.makeWidget()
   }
+
   render() {
     return (
       <div id="thisDiv">
@@ -258,8 +257,14 @@ class Main extends Component {
                 <MainStyles.CarWrapper id="carWrapper"></MainStyles.CarWrapper>
               </MainStyles.GridContainer>
               <MainStyles.ButtonsWrapper>
-                <button className = "saveScheduleButton" onClick={ToStorage}>Save schedule</button>
-                <button className= "clearGridButton" onClick={this.handleClear}>Clear grid</button>
+                <SaveSchedule></SaveSchedule>
+
+                {/* <button className="saveScheduleButton" onClick={ToStorage}>
+                  Save schedule
+                </button> */}
+                <button className="clearGridButton" onClick={this.handleClear}>
+                  Clear grid
+                </button>
               </MainStyles.ButtonsWrapper>
             </AppStyles.Main>
           </AppStyles.Container>

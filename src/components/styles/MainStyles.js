@@ -50,7 +50,6 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-
 const MainStyles = {
   GridContainer: GridContainer,
   GridWrapper: GridWrapper,

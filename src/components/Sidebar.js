@@ -43,7 +43,8 @@ class Sidebar extends Component {
           </li>
         </SidebarStyles.SidebarHeader>
         <SidebarStyles.SidebarHistory>
-          Schedule History
+          <h2> Schedule History </h2>
+          <div className = "scheduleHistory"></div>
         </SidebarStyles.SidebarHistory>
       </SidebarStyles.Sidebar>
     );
