@@ -1,3 +1,5 @@
+// may be able to delete
+
 import React from "react";
 
 const dataArray = [];
@@ -24,7 +26,6 @@ const Names = {
 };
 
 //takes in data from grid on drop
-
 let addToDataArray = (node) => {
   // set data based on DaysOfWeek and Names object
   let widgetData = node;

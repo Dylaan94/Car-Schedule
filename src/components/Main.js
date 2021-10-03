@@ -7,8 +7,8 @@ import "gridstack/dist/gridstack-extra.css";
 import $ from "jquery";
 
 import MainStyles from "./styles/MainStyles";
-import { addToDataArray, removeFromDataArray } from "./Logic";
-import { ToStorage, FromStorage, dataArrayFromStorage } from "./LocalStorage";
+// import { addToDataArray, removeFromDataArray } from "./Logic";
+import { addToDataArray,removeFromDataArray } from "./LocalStorage";
 import Footer from "./Footer";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
