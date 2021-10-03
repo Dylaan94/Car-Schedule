@@ -8,43 +8,33 @@ class Sidebar extends Component {
     this.state = {
       saved: [],
     };
-    this.onTrigger = this.onTrigger.bind(this);
+
+    this.updateScheduleHistory = this.updateScheduleHistory.bind(this);
   }
 
-  // when button is triggered it will send this.state
-  // to handleInput(handleLoadStorage) as an arg
-  onTrigger = (e) => {
-    let savedData = JSON.parse(window.localStorage.getItem("savedSchedule"));
-    console.log(savedData);
+  updateScheduleHistory() {
+    console.log("updating schedule history");
+    console.log(this.state);
 
-    this.setState(
-      {
-        saved: savedData,
-      },
-      () => {
-        console.log(this.state); // setState is async so console log returned as callback
-        this.props.handleInput(this.state.saved); // send saved data to handleInput in main
-      }
-    );
-  };
+    return () => {
+      <div>{this.props.values.startDate}</div>;
+    };
+  }
 
   render() {
+    const { values } = this.props;
     return (
       <SidebarStyles.Sidebar>
-        <SidebarStyles.SidebarTitle>
-          This is a sidebar
-        </SidebarStyles.SidebarTitle>
-        <SidebarStyles.SidebarHeader>
-          <li>
-            <button onClick={this.onTrigger}> Load Recent Schedule </button>
-          </li>
-          <li>
-            <button onClick={localStorage.clear()}> Delete Schedules </button>
-          </li>
-        </SidebarStyles.SidebarHeader>
         <SidebarStyles.SidebarHistory>
+          {console.log(values)}
           <h2> Schedule History </h2>
-          <div className = "scheduleHistory"></div>
+          <div className="scheduleHistory">
+            {/* maps data and displays on sidebar when the component is updated
+            this happens when the save schedule component is clicked */}
+            {values.map((data) => (
+              <div className="savedDataList"> {data.startDate} </div>
+            ))}
+          </div>
         </SidebarStyles.SidebarHistory>
       </SidebarStyles.Sidebar>
     );

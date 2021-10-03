@@ -241,7 +241,6 @@ class Main extends Component {
           <AppStyles.Sidebar>
             <Sidebar
               values={this.state.saved}
-              handleInput={this.handleLoadSchedule}
             />
           </AppStyles.Sidebar>
           <AppStyles.Container>
