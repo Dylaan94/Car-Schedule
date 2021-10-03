@@ -12,13 +12,16 @@ class Sidebar extends Component {
     this.updateScheduleHistory = this.updateScheduleHistory.bind(this);
   }
 
-  updateScheduleHistory() {
-    console.log("updating schedule history");
-    console.log(this.state);
-
-    return () => {
-      <div>{this.props.values.startDate}</div>;
-    };
+  updateScheduleHistory(values) {
+    /* maps data and displays on sidebar when the component is updated
+  this happens when the save schedule component is clicked */
+    return (
+      <div>
+        {values.map((data) => (
+          <div className="savedDataList"> {data.startDate} </div>
+        ))}
+      </div>
+    );
   }
 
   render() {
@@ -29,11 +32,7 @@ class Sidebar extends Component {
           {console.log(values)}
           <h2> Schedule History </h2>
           <div className="scheduleHistory">
-            {/* maps data and displays on sidebar when the component is updated
-            this happens when the save schedule component is clicked */}
-            {values.map((data) => (
-              <div className="savedDataList"> {data.startDate} </div>
-            ))}
+            {this.updateScheduleHistory(values)}
           </div>
         </SidebarStyles.SidebarHistory>
       </SidebarStyles.Sidebar>
