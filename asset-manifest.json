@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Car-Schedule/static/css/main.100f6165.chunk.css",
-    "main.js": "/Car-Schedule/static/js/main.e83c46d4.chunk.js",
-    "main.js.map": "/Car-Schedule/static/js/main.e83c46d4.chunk.js.map",
-    "runtime-main.js": "/Car-Schedule/static/js/runtime-main.a0d291cc.js",
-    "runtime-main.js.map": "/Car-Schedule/static/js/runtime-main.a0d291cc.js.map",
+    "main.css": "/Car-Schedule/static/css/main.588fb3d0.chunk.css",
+    "main.js": "/Car-Schedule/static/js/main.30f28e5a.chunk.js",
+    "main.js.map": "/Car-Schedule/static/js/main.30f28e5a.chunk.js.map",
+    "runtime-main.js": "/Car-Schedule/static/js/runtime-main.99cbeb34.js",
+    "runtime-main.js.map": "/Car-Schedule/static/js/runtime-main.99cbeb34.js.map",
     "static/css/2.e65bd7a3.chunk.css": "/Car-Schedule/static/css/2.e65bd7a3.chunk.css",
-    "static/js/2.b11584bd.chunk.js": "/Car-Schedule/static/js/2.b11584bd.chunk.js",
-    "static/js/2.b11584bd.chunk.js.map": "/Car-Schedule/static/js/2.b11584bd.chunk.js.map",
-    "static/js/3.c91a71ab.chunk.js": "/Car-Schedule/static/js/3.c91a71ab.chunk.js",
-    "static/js/3.c91a71ab.chunk.js.map": "/Car-Schedule/static/js/3.c91a71ab.chunk.js.map",
+    "static/js/2.89fd1cfb.chunk.js": "/Car-Schedule/static/js/2.89fd1cfb.chunk.js",
+    "static/js/2.89fd1cfb.chunk.js.map": "/Car-Schedule/static/js/2.89fd1cfb.chunk.js.map",
+    "static/js/3.97401d18.chunk.js": "/Car-Schedule/static/js/3.97401d18.chunk.js",
+    "static/js/3.97401d18.chunk.js.map": "/Car-Schedule/static/js/3.97401d18.chunk.js.map",
     "index.html": "/Car-Schedule/index.html",
     "static/css/2.e65bd7a3.chunk.css.map": "/Car-Schedule/static/css/2.e65bd7a3.chunk.css.map",
-    "static/css/main.100f6165.chunk.css.map": "/Car-Schedule/static/css/main.100f6165.chunk.css.map",
-    "static/js/2.b11584bd.chunk.js.LICENSE.txt": "/Car-Schedule/static/js/2.b11584bd.chunk.js.LICENSE.txt"
+    "static/css/main.588fb3d0.chunk.css.map": "/Car-Schedule/static/css/main.588fb3d0.chunk.css.map",
+    "static/js/2.89fd1cfb.chunk.js.LICENSE.txt": "/Car-Schedule/static/js/2.89fd1cfb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a0d291cc.js",
+    "static/js/runtime-main.99cbeb34.js",
     "static/css/2.e65bd7a3.chunk.css",
-    "static/js/2.b11584bd.chunk.js",
-    "static/css/main.100f6165.chunk.css",
-    "static/js/main.e83c46d4.chunk.js"
+    "static/js/2.89fd1cfb.chunk.js",
+    "static/css/main.588fb3d0.chunk.css",
+    "static/js/main.30f28e5a.chunk.js"
   ]
 }
