@@ -1,8 +1,8 @@
-import { Component } from "react";
-
-let dataArrayFromStorage;
+// Organise and maintain data that will be moved into state
 
 const dataArray = [];
+const preparedDataArray = [];
+let dataArrayFromStorage;
 
 const DaysOfWeek = {
   1: "Monday",
@@ -25,7 +25,7 @@ const Names = {
   9: "Imelda",
 };
 
-//takes in data from grid on drop
+//takes in data from grid on drop in Main.js
 let addToDataArray = (node) => {
   // set data based on DaysOfWeek and Names object
   let widgetData = node;
@@ -66,25 +66,33 @@ let removeFromDataArray = (node) => {
   }
 };
 
-let ToStorage = (props) => {
-  // const {} = props
+let prepareForStorage = () => {
+  let preparedDataArray = [dataArray]
+  console.log(preparedDataArray)
+  ToStorage(preparedDataArray);
+}
+
+let ToStorage = (preparedDataArray) => {
   // uses JSON to store data as a string in local storage
-  let dataArray_serialised = JSON.stringify(dataArray);
+  let dataArray_serialised = JSON.stringify(preparedDataArray);
   window.localStorage.setItem("savedSchedule", dataArray_serialised);
   console.log("Saved to storage!");
-
-  return <div></div>;
 };
 
-const FromStorage = (props) => {
-  const { FromStorage } = props;
+const FromStorage = () => {
   // parse from string
   let dataArray_deserialised = JSON.parse(
     window.localStorage.getItem("savedSchedule")
   );
   let dataArrayFromStorage = dataArray_deserialised;
   console.log(dataArrayFromStorage);
-  return <div>{dataArrayFromStorage}</div>;
 };
 
-export { ToStorage, FromStorage, addToDataArray, removeFromDataArray, dataArrayFromStorage };
+export {
+  prepareForStorage,
+  ToStorage,
+  FromStorage,
+  addToDataArray,
+  removeFromDataArray,
+  dataArrayFromStorage,
+};

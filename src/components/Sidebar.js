@@ -15,10 +15,12 @@ class Sidebar extends Component {
   updateScheduleHistory(values) {
     /* maps data and displays on sidebar when the component is updated
   this happens when the save schedule component is clicked */
+    
+    // need to fix this so that the data is loaded out of the right array
     return (
       <div>
         {values.map((data) => (
-          <div className="savedDataList"> {data.startDate} </div>
+          <div className="savedDataList"> {data[0].startDate} </div>
         ))}
       </div>
     );
